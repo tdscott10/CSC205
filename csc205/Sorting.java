@@ -228,11 +228,11 @@ public class Sorting {
 	 public static <T extends Comparable<T>> 
 		void sort(T[] a){
 	
-		 insertionSort(a, 0, a.length);
+		 sort(a, 0, a.length);  
 	 }
 	 
 	 public static <T extends Comparable<T>> 
-		void Sort(T[] data, int min, int max){
+		void sort(T[] data, int min, int max){
 		 
 		 int start = Math.max(min, 1);
 	    	int end = Math.min(max, data.length-1);
@@ -257,7 +257,7 @@ public class Sorting {
 											// To insertion sort
 	
 	public static <T extends Comparable<T>> 
-	void cutoff_qsort(Integer[] a){
+		void cutoff_qsort(Integer[] a){
 	
 		cutoff_qsort(a, 0, a.length - 1);
 		
@@ -267,8 +267,8 @@ public class Sorting {
 		void cutoff_qsort(T[] data, int min, int max) {
 	if (min + CUTOFF > max) 
 	{
-		Sorting.insertionSort(data, min, max);
-	}
+		insertionSort(data, min, max); // If the array is not longer than the cutoff value than switches it to insertion sort
+	}							   	  // You can change this to another sorting method if needed
 	else
 	{
 		int partitionindex = partition(data, min, max);
@@ -277,28 +277,36 @@ public class Sorting {
 	}
 }
 	
+	// Finding the nth element in an array before its sorted. 
+	
 	public static <T extends Comparable<T>> 
 		T find_nth(T[] a, int targetValue) 
 	{
 		int first = 0;
 		int last = a.length - 1;
+		
 		while(true) {
-			int pivot = partition(a, first, last);
-			if(pivot == targetValue)
+			
+			int pivot = partition(a, first, last); // Partitions the array a into first and last elements. 
+			if(pivot == targetValue)  // if the target value is the same as the pivot then it returns the pivot.
 				return a[pivot];
-			else if(pivot < targetValue) 
+			else if(pivot < targetValue)  // Increments the first by one so it shifts the pivot by one. 
 				first = pivot + 1;
 			else
-				last = pivot - 1;
+				last = pivot - 1; // Increments the last by one so it shifts the pivot by one. 
 		}
 	}
 	
+	// Finding the first nth elements in a sorted array. 
 	
 	public static <T extends Comparable<T>> T[] top_n(T[] a, int myN) 
 	{
 		T[] result = (T[]) Array.newInstance(a.getClass().getComponentType(), myN);
+		
+		// Simple for loop that as long as i is < than myN it increments 
+		//it by one and stores those values into the result value. 
 		for(int i = 0; i < myN; i++) {
-			result[i] = a[i];
+			result[i] = a[i]; // results stores the values of how many elements myN is asking for
 		}
 		return result;
 	}
