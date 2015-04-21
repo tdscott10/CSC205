@@ -1,3 +1,8 @@
+//Program Name : Sorting
+//Author : Aaron Stahley	
+//Date Written: 4/21/2015
+//Class : Sorting.java
+
 package csc205;
 
 import java.lang.reflect.Array;
@@ -212,13 +217,38 @@ public class Sorting {
 		    a[index1] = a[index2];
 		    a[index2] = tmp;
 		  }
+	 
+	 
+	 
+	 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 
 	
-	public static void sort(Integer[] a) 
-	{
-		Sorting.insertionSort(a);
-	}
+	 public static <T extends Comparable<T>> 
+		void sort(T[] a){
+	
+		 insertionSort(a, 0, a.length);
+	 }
+	 
+	 public static <T extends Comparable<T>> 
+		void Sort(T[] data, int min, int max){
+		 
+		 int start = Math.max(min, 1);
+	    	int end = Math.min(max, data.length-1);
+	    	
+	    	for (int ii=start; ii <= end; ii++) {
+	    		T key = data[ii];
+	    		int position = ii;
+	    		
+	    		while (position > 0 && greater_than(data[position-1], key)) {
+	    			data[position] = data[position-1];
+	    			position--;
+	    		}
+	    		data[position] = key;
+	    	}    	
+		 
+	 }
 	
 	
 	// Beginning of the cutoff_qsort method. 
