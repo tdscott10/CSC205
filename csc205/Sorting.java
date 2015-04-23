@@ -228,7 +228,7 @@ public class Sorting {
 	 public static <T extends Comparable<T>> 
 		void sort(T[] a){
 	
-		 sort(a, 0, a.length);  
+		 sort(a, 0, a.length);
 	 }
 	 
 	 public static <T extends Comparable<T>> 
@@ -264,7 +264,7 @@ public class Sorting {
 	}
 	
 	private static <T extends Comparable<T>>  
-		void cutoff_qsort(T[] data, int min, int max) {
+		void cutoff_qsort(T[] data, int min, int max){
 	if (min + CUTOFF > max) 
 	{
 		insertionSort(data, min, max); // If the array is not longer than the cutoff value than switches it to insertion sort
