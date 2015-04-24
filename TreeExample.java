@@ -35,7 +35,6 @@ public class TreeExample {
 		else
 			System.out.println("contains() does not work!");
 		System.out.println();
-
 		
 		System.out.print ("Pre-order traversal: ");
 		Iterator<String> pre = a.iteratorPreOrder();

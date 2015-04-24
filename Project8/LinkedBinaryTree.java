@@ -241,7 +241,7 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>, Iterable<T>
     	
     	while(iter.hasNext())
     	{
-    		ret += iter.next();
+    		ret += iter.next() + ",";
     	}
     	
     	return ret;

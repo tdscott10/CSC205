@@ -311,7 +311,34 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
     {
         // To be completed as a Programming Project
     	
-    	return null; 
+    	 T result = null;
+
+         if (isEmpty())
+             throw new EmptyCollectionException("LinkedBinarySearchTree");
+         else 
+         {
+             if (root.right == null) 
+             {
+                 result = root.element;
+                 root = root.left;
+             }
+             else 
+             {
+                 BinaryTreeNode<T> parent = root;
+                 BinaryTreeNode<T> current = root.right;
+                 while (current.right != null) 
+                 {
+                     parent = current;
+                     current = current.right;
+                 }
+                 result =  current.element;
+                 parent.right = current.left;
+             }
+
+             modCount--;
+         }
+    	
+    	return result; 
     }
 
     /**
@@ -324,10 +351,11 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public T findMin() throws EmptyCollectionException 
     {
-        // To be completed as a Programming Project
+    	
     	
     	return null; 
     }
+
 
     /**
      * Returns the element with the highest value in the binary
@@ -362,7 +390,7 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
     /**
      * Returns the left subtree of the root of this tree.
      *
-     * @return a link to the left subtree fo the tree
+     * @return a link to the left subtree of the tree
      */
     public LinkedBinarySearchTree<T> getLeft()
     {
