@@ -1,6 +1,5 @@
 package Project8;
 
-import Project8.*;
 import jsjf.exceptions.*;
 
 /**
@@ -351,9 +350,17 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public T findMin() throws EmptyCollectionException 
     {
+    
+    	return minValue(root); 
+    }
+    
+    private T minValue(BinaryTreeNode<T> r){
     	
+    	if(r.left == null){
+    		return r.element;
+    	}
     	
-    	return null; 
+		return minValue(r.left);
     }
 
 
@@ -366,10 +373,18 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      * @return the element with the highest value
      * @throws EmptyCollectionException if the tree is empty
      */
-    public T findMax() throws EmptyCollectionException 
-    {
-        // To be completed as a Programming Project
-    	return null; 
+    public T findMax() throws EmptyCollectionException {
+    	
+    	return maxValue(root); 
+    }
+    
+   private T maxValue(BinaryTreeNode<T> r){
+    	
+    	if(r.right == null){
+    		return r.element;
+    	}
+    	
+		return maxValue(r.right);
     }
 
     /**
@@ -394,10 +409,11 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public LinkedBinarySearchTree<T> getLeft()
     {
-        // To be completed as a Programming Project
+        
     	
     	return null;
     }
+
     
     /**
      * Returns the right subtree of the root of this tree.
@@ -406,7 +422,7 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public LinkedBinarySearchTree<T> getRight()
     {
-        // To be completed as a Programming Project
+       
     	
     	return null; 
     }

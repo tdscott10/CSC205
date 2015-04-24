@@ -51,13 +51,13 @@ public class LinkedBinaryTreeDriver {
 		System.out.println("\n");
 		
 		
-		// Fiding the min and max of the tree. 
+		// Finding the min and max of the tree. 
 		System.out.println("The max value is: " + Tree.findMax());
-		System.out.println("The min value is: " + Tree.findMax());
+		System.out.println("The min value is: " + Tree.findMin());
 		
 		System.out.println();
 		
-		//Fiding the left and right parts of the tree. 
+		//Finding the left and right parts of the tree. 
 		System.out.println("Left Part of the tree: " + Tree.getLeft());
 		System.out.println("Right Part of the tree: " + Tree.getRight());
 		
