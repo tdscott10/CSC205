@@ -409,9 +409,12 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public LinkedBinarySearchTree<T> getLeft()
     {
-        
-    	
-    	return null;
+        if (isEmpty())
+            throw new EmptyCollectionException("binary tree");    
+    
+        LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>();
+        ret.root = this.root.getLeft();
+        return ret;
     }
 
     
@@ -422,9 +425,12 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public LinkedBinarySearchTree<T> getRight()
     {
-       
-    	
-    	return null; 
+    	if (isEmpty())
+            throw new EmptyCollectionException("binary tree");    
+    
+        LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>();
+        ret.root = this.root.getRight();
+        return ret; 
     }
     
     /**
