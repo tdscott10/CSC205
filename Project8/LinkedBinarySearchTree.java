@@ -10,7 +10,7 @@ import jsjf.exceptions.*;
  * @version 4.0
  */
 public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
-                                        implements BinarySearchTreeADT<T>
+                                        implements BinarySearchTreeADT<T> 
 {
     /**
      * Creates an empty binary search tree.
@@ -409,11 +409,13 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public LinkedBinarySearchTree<T> getLeft()
     {
-        if (isEmpty())
+        if (isEmpty()){
             throw new EmptyCollectionException("binary tree");    
+        }
     
         LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>();
         ret.root = this.root.getLeft();
+        
         return ret;
     }
 
@@ -425,11 +427,13 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      */
     public LinkedBinarySearchTree<T> getRight()
     {
-    	if (isEmpty())
-            throw new EmptyCollectionException("binary tree");    
+    	if (isEmpty()){
+            throw new EmptyCollectionException("binary tree");  
+    	}
     
         LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>();
         ret.root = this.root.getRight();
+        
         return ret; 
     }
     
@@ -440,11 +444,29 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T>
      * @param targetElement the element being sought in the tree
      * @param next the tree node to begin searching on
      */
-    private BinaryTreeNode<T> findNode(T targetElement, BinaryTreeNode<T> next) 
-    {
-        // To be completed as a Programming Project
-    	
-    	return null; 
-    }
-}
 
+    
+    private BinaryTreeNode<T> findNode(T targetElement, BinaryTreeNode<T> next) {
+   
+    	 if (next == null){
+             return null;
+    	 }
+         
+         if (next.getElement().equals(targetElement)){
+             return next;
+         }
+         
+         BinaryTreeNode<T> ret = findNode(targetElement, next.getLeft());
+         
+         if (ret == null){
+             ret = findNode(targetElement, next.getRight());
+         }
+         
+         return ret;
+    	
+    }
+
+    
+    
+}
+    

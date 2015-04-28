@@ -14,6 +14,8 @@ public class LinkedBinaryTreeDriver {
 		Tree.addElement(15);
 		Tree.addElement(25);
 		Tree.addElement(1);
+		Tree.addElement(5);
+		Tree.addElement(32);
 
 		//Getting the height and the size of the tree. 
 		System.out.println("Tree: " + Tree.toString());
@@ -21,7 +23,6 @@ public class LinkedBinaryTreeDriver {
 		System.out.println("Size of the tree: " + Tree.size());
 		
 		System.out.println();
-		
 		
 		// traversing the tree with a Pre-Order Traversal
 		System.out.print("Pre-order Traversal: ");
@@ -70,8 +71,12 @@ public class LinkedBinaryTreeDriver {
 		System.out.println();
 		
 		// Removing the MIN value in the tree. 
-		System.out.println("Removing the min value which is: " + Tree.removeMin());
 		System.out.println("After removing the Min and the max Value: " + Tree.toString());
+		
+		System.out.println();
+		
+		// finding a specific node.
+		System.out.println(Tree.find(15));
 
 
 		
